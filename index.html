@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية الحاسبات والذكاء الاصطناعي - جامعة الأزهر | البوابة الرقمية الموحدة</title>
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azhar-green: #0d5c3a;
+            --azhar-green-dark: #073823;
+            --azhar-gold: #c59313;
+            --tech-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            
+            --fb-color: #1877f2;
+            --wa-color: #25d366;
+            --tg-color: #229ed9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--tech-bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(13, 92, 58, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 90%, rgba(229, 179, 36, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 10% 50%, rgba(34, 158, 217, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 35px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--azhar-green), #e5b324, var(--azhar-green));
+        }
+
+        .logo-container {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 18px;
+            position: relative;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #e5b324, var(--azhar-green));
+            box-shadow: 0 0 25px rgba(229, 179, 36, 0.2);
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(229, 179, 36, 0.15); }
+            100% { box-shadow: 0 0 30px rgba(229, 179, 36, 0.3); }
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #fff;
+            display: block;
+        }
+
+        .college-title {
+            font-size: 1.65rem;
+            font-weight: 900;
+            color: var(--azhar-green-dark);
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .university-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--azhar-gold);
+            margin-bottom: 14px;
+            display: inline-block;
+            background: rgba(229, 179, 36, 0.12);
+            padding: 3px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(229, 179, 36, 0.3);
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Platform Cards Section */
+        .cards-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 22px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .platform-card:hover {
+            border-color: rgba(229, 179, 36, 0.6);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Platform Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .platform-logo-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .platform-logo-link:hover {
+            transform: scale(1.08) rotate(-4deg);
+            filter: brightness(1.05);
+        }
+
+        .platform-logo-link i {
+            font-size: 1.7rem;
+            color: #ffffff;
+        }
+
+        .platform-info {
+            flex-grow: 1;
+        }
+
+        .platform-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .platform-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Card Sections (Official vs Unofficial) */
+        .sub-section {
+            margin-top: 14px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-official {
+            background: rgba(13, 92, 58, 0.08);
+            color: var(--azhar-green);
+            border: 1px solid rgba(13, 92, 58, 0.2);
+        }
+
+        .badge-unofficial {
+            background: rgba(229, 179, 36, 0.12);
+            color: #b48200;
+            border: 1px solid rgba(229, 179, 36, 0.3);
+        }
+
+        /* Custom Action Buttons */
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 18px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .btn-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            background: #ffffff;
+            color: var(--azhar-green);
+            border: 1px solid #e2e8f0;
+            transition: all 0.25s ease;
+        }
+
+        .action-btn:hover {
+            background: #f1f5f9;
+            border-color: rgba(13, 92, 58, 0.3);
+            transform: translateX(-4px);
+        }
+
+        .action-btn:hover .btn-icon-box {
+            background: var(--azhar-green);
+            color: #ffffff;
+            border-color: var(--azhar-green);
+        }
+
+        .action-btn:active {
+            transform: translateX(-1px);
+        }
+
+        .arrow-icon {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .action-btn:hover .arrow-icon {
+            transform: translateX(-4px);
+            color: var(--azhar-green);
+        }
+
+        /* Specific Platform Colors */
+        .card-facebook .platform-logo-link { background: var(--fb-color); box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2); }
+        .card-whatsapp .platform-logo-link { background: var(--wa-color); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
+        .card-telegram .platform-logo-link { background: var(--tg-color); box-shadow: 0 4px 12px rgba(34, 158, 217, 0.2); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 10px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer p {
+            margin-bottom: 4px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 18px 10px;
+            }
+            .header {
+                padding: 25px 15px;
+                border-radius: 22px;
+            }
+            .college-title {
+                font-size: 1.38rem;
+            }
+            .university-title {
+                font-size: 1rem;
+            }
+            .logo-container {
+                width: 105px;
+                height: 105px;
+            }
+            .platform-card {
+                padding: 18px 14px;
+                border-radius: 18px;
+            }
+            .action-btn {
+                padding: 11px 14px;
+                font-size: 0.88rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo-container">
+                <!-- استبدل logo.png بمسار صورة اللوجو المرفقة -->
+                <img src="images/WhatsApp Image 2026-09-14 at 1.17.37 PM.jpeg" alt="شعار كلية الحاسبات والذكاء الاصطناعي" class="logo-img">
+            </div>
+            <h1 class="college-title">كلية الحاسبات والذكاء الاصطناعي</h1>
+            <div class="university-title"><i class="fa-solid fa-graduation-cap"></i> جامعة الأزهر</div>
+            <p class="description">كل ما يخص طلاب كلية الحاسبات والذكاء الاصطناعي – جامعة الأزهر في مكان واحد.</p>
+        </header>
+
+        <!-- Main Content: Platform Cards -->
+        <main class="cards-wrapper">
+
+            <!-- 🔵 Facebook Card -->
+            <div class="platform-card card-facebook">
+                <div class="card-header">
+                    <a href="https://www.facebook.com/share/1C5xoLWGZf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="platform-logo-link" title="افتح فيسبوك">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <div class="platform-info">
+                        <h2 class="platform-title">Facebook</h2>
+                        <span class="platform-subtitle">الصفحة الرسمية ومجتمعات الفيسبوك</span>
+                    </div>
+                </div>
+
+                <!-- Official Section -->
+                <div class="sub-section">
+                    <div class="badge badge-official">
+                        <i class="fa-solid fa-circle-check"></i> Official / رسمي
+                    </div>
+                    <div class="btn-list">
+                        <a href="https://www.facebook.com/share/1C5xoLWGZf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="action-btn">
+                            <div class="btn-left">
+                                <div class="btn-icon-box"><i class="fa-solid fa-award"></i></div>
+                                <span>الصفحة الرسمية للكلية</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unofficial / Communities Section -->
+                <div class="sub-section">
+                    <div class="badge badge-unofficial">
+                        <i class="fa-solid fa-users"></i> Unofficial / Students Community
+                    </div>
+                    <div class="btn-list">
+                        <a href="https://www.facebook.com/share/g/1KCkYoYoJr/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="action-btn">
+                            <div class="btn-left">
+                                <div class="btn-icon-box"><i class="fa-solid fa-user-group"></i></div>
+                                <span>جروب الطلاب غير الرسمي (Group 1)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/g/19Wno4QfPz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="action-btn">
+                            <div class="btn-left">
+                                <div class="btn-icon-box"><i class="fa-solid fa-people-group"></i></div>
+                                <span>جروب الطلاب غير الرسمي (Group 2)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🟢 WhatsApp Card -->
+            <div class="platform-card card-whatsapp">
+                <div class="card-header">
+                    <a href="https://chat.whatsapp.com/C8d1QjWsS0qGSZiw19Tu6y" target="_blank" rel="noopener noreferrer" class="platform-logo-link" title="افتح واتساب">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <div class="platform-info">
+                        <h2 class="platform-title">WhatsApp</h2>
+                        <span class="platform-subtitle">مجموعات التواصل والتحديثات الفورية</span>
+                    </div>
+                </div>
+
+                <!-- Unofficial / Student Communities -->
+                <div class="sub-section">
+                    <div class="badge badge-unofficial">
+                        <i class="fa-solid fa-users"></i> Student Communities / مجتمعات الطلاب
+                    </div>
+                    <div class="btn-list">
+                        <a href="https://chat.whatsapp.com/C8d1QjWsS0qGSZiw19Tu6y" target="_blank" rel="noopener noreferrer" class="action-btn">
+                            <div class="btn-left">
+                                <div class="btn-icon-box"><i class="fa-solid fa-comments"></i></div>
+                                <span>مجموعة الواتساب (WhatsApp Group)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🟣 Telegram Card -->
+            <div class="platform-card card-telegram">
+                <div class="card-header">
+                    <a href="https://t.me/+Fk9yIYnifb5mY2Q0" target="_blank" rel="noopener noreferrer" class="platform-logo-link" title="افتح تليجرام">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <div class="platform-info">
+                        <h2 class="platform-title">Telegram</h2>
+                        <span class="platform-subtitle">القنوات المخصصة للطلاب والمستندات</span>
+                    </div>
+                </div>
+
+                <!-- Unofficial / Students Section -->
+                <div class="sub-section">
+                    <div class="badge badge-unofficial">
+                        <i class="fa-solid fa-users"></i> Unofficial / Students Community
+                    </div>
+                    <div class="btn-list">
+                        <a href="https://t.me/+Fk9yIYnifb5mY2Q0" target="_blank" rel="noopener noreferrer" class="action-btn">
+                            <div class="btn-left">
+                                <div class="btn-icon-box"><i class="fa-solid fa-paper-plane"></i></div>
+                                <span>قناة / مجتمع الطلاب على التليجرام</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>جميع الحقوق محفوظة &copy; 2026 - كلية الحاسبات والذكاء الاصطناعي بجامعة الأزهر</p>
+            <p style="font-size: 0.75rem; color: #64748b;">البوابة الرقمية الموحدة لخدمة الطلاب</p>
+        </footer>
+    </div>
+
+</body>
+</html>
